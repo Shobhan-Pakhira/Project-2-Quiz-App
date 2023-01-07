@@ -4,6 +4,8 @@ import { fetchQuizQuestion } from './API';
 //Types
 import { QuestionState, Difficulty } from './API';
 
+//Styles
+import { GlobalStyle, Wrapper } from './app.styles';
 
 // Components
 import QuestionCard from './components/QuestionCard';
@@ -17,7 +19,7 @@ export type AnswerObject = {
 
 const TOTAL_QUESTIONS = 10;
 
-const App = () => {
+const App: React.FC = () => {
   //States Declaration
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState<QuestionState[]>([]);
@@ -40,7 +42,7 @@ const App = () => {
   };
 
 
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const checkAnswer = (e: any) => {
     if (!gameOver) {
       // User's answer
       const answer = e.currentTarget.value;
@@ -70,7 +72,9 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <>
+    <GlobalStyle />
+    <Wrapper>
       <h1>REACT QUIZ</h1>
       {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
         <button className="start" onClick={startTrivia}>
@@ -92,14 +96,13 @@ const App = () => {
         callback={checkAnswer}
         />
       )}
-
       { !gameOver && !loading && userAnswers.length === number+1 && number !== TOTAL_QUESTIONS-1 ?(
         <button className="next" onClick={nextQuestion}>
         Next Question
       </button>
       ) :null }
-
-    </div>
+    </Wrapper>
+    </>
   );
 }
 

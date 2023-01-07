@@ -1,6 +1,6 @@
 
 import styled, { createGlobalStyle } from 'styled-components';
-import BGImage from './images/Background.jpg';
+import BGImage from './images/Mesh 89.jpg';
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
   }
   * {
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
   }
 `;
